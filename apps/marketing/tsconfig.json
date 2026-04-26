@@ -1,0 +1,14 @@
+{
+	"extends": "../../tsconfig.json",
+	"include": ["**/*.ts", "**/*.tsx"],
+	"exclude": ["node_modules", ".output"],
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@template/shared": ["../../packages/shared/src/index.tsx"],
+			"@template/shared/*": ["../../packages/shared/src/*"],
+			"~/*": ["./src/*"],
+			"@convex/*": ["../../convex/*"]
+		}
+	}
+}

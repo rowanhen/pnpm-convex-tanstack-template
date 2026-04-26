@@ -1,0 +1,68 @@
+name: Build, Lint & Typecheck
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v5
+        with:
+          version: latest
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Prettier format check
+        run: pnpm format:check
+
+      - name: OxLint
+        run: pnpm lint
+
+  build:
+    name: Build apps
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v5
+        with:
+          version: latest
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Typecheck marketing
+        run: pnpm --filter marketing exec tsc --noEmit
+
+      - name: Typecheck dashboard
+        run: pnpm --filter dashboard exec tsc --noEmit
+
+      - name: Build marketing
+        run: pnpm --filter marketing build
+
+      - name: Build dashboard
+        run: pnpm --filter dashboard build

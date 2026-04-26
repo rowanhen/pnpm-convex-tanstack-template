@@ -1,0 +1,33 @@
+{
+	"include": ["**/*.ts", "**/*.tsx"],
+	"exclude": ["node_modules", ".output", "dist"],
+	"compilerOptions": {
+		"target": "ES2022",
+		"jsx": "react-jsx",
+		"module": "ESNext",
+		"lib": ["ES2022", "DOM", "DOM.Iterable"],
+		"types": ["vite/client"],
+		"moduleResolution": "bundler",
+		"allowImportingTsExtensions": true,
+		"verbatimModuleSyntax": true,
+		"noEmit": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUncheckedSideEffectImports": true,
+		"ignoreDeprecations": "6.0",
+		"baseUrl": ".",
+		"paths": {
+			"@template/shared": ["./packages/shared/src/index.tsx"],
+			"@template/shared/*": ["./packages/shared/src/*"],
+			"@convex/*": ["./convex/*"]
+		},
+		"esModuleInterop": true,
+		"isolatedModules": true,
+		"resolveJsonModule": true,
+		"allowJs": true,
+		"forceConsistentCasingInFileNames": true
+	}
+}

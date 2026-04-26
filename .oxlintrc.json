@@ -1,0 +1,18 @@
+{
+	"$schema": "https://raw.githubusercontent.com/nicolo-ribaudo/oxlint/refs/heads/main/.oxlintrc.json",
+	"plugins": ["react", "typescript", "jsx-a11y", "import"],
+	"categories": {
+		"correctness": "warn",
+		"suspicious": "warn"
+	},
+	"rules": {
+		"no-unused-vars": "warn",
+		"import/no-duplicates": "warn",
+		"react/no-array-index-key": "off",
+		"react/no-danger": "off",
+		"react/react-in-jsx-scope": "off",
+		"typescript/no-explicit-any": "warn",
+		"typescript/no-non-null-assertion": "warn"
+	},
+	"ignorePatterns": ["convex/_generated/**", "apps/*/src/routeTree.gen.ts", "node_modules", "dist"]
+}
