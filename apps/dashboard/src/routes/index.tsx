@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { AppShell, appCopy } from '@template/shared'
+import { AppShell, appCopy } from '@workspace/shared'
 
 export const Route = createFileRoute('/')({
 	component: DashboardHomePage,

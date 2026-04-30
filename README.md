@@ -23,12 +23,16 @@ scripts/
 .github/workflows/
 ```
 
-## Setup
+## Quick Start
 
-1. Run `pnpm install`.
-2. Replace placeholder values in `.env.local`, `.env.convex`, `.env.prod`, and `.env.keys`.
-3. If you want encrypted envs, run `dotenvx set ...` / `dotenvx encrypt`.
-4. Start local dev with `pnpm dev`.
+1. Clone the repo.
+2. Run `node scripts/setup-project.mjs your-project-name`.
+3. Run `pnpm install`.
+4. Replace placeholder values in `.env.local`, `.env.convex`, `.env.prod`, and `.env.keys`.
+5. If you want encrypted envs, run `dotenvx set ...` / `dotenvx encrypt`.
+6. Start local dev with `pnpm dev`.
+
+The setup script updates the package name, shared project copy, README heading, and Cloudflare Pages deploy prefix from one project name input.
 
 ## Env Setup
 
@@ -42,6 +46,7 @@ This template uses `dotenvx` from the repo root so local dev, builds, deploys, a
 Typical flow:
 
 ```bash
+node scripts/setup-project.mjs your-project-name
 pnpm install
 
 # edit placeholders in the checked-in env files
@@ -105,6 +110,6 @@ One important constraint from the current `cf-infra` setup: Terraform owns the P
 - `marketing` runs on port `3000`.
 - `dashboard` runs on port `3001`.
 - `scripts/deploy.sh` assumes Cloudflare Pages project names:
-  - `pnpm-convex-tanstack-template-marketing`
-  - `pnpm-convex-tanstack-template-dashboard`
+  - `<package-name>-marketing`
+  - `<package-name>-dashboard`
 - `scripts/sync-env-to-convex.sh` syncs a small starter set of runtime vars. Expand it as your backend grows.

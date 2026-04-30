@@ -1,9 +1,12 @@
 import type { ReactNode } from 'react'
+import { PROJECT_NAME, appMetaDescription } from './project'
+
+export { PROJECT_NAME, appMetaDescription, appTitle } from './project'
 
 export function appCopy(name: string, audience: string) {
 	return {
-		title: `${name} template`,
-		description: `Starter ${audience} app powered by TanStack Start, Convex, pnpm, and dotenvx.`,
+		title: `${PROJECT_NAME} ${name}`,
+		description: appMetaDescription(audience),
 	}
 }
 
@@ -39,7 +42,7 @@ export function AppShell(props: {
 						marginBottom: 24,
 					}}
 				>
-					pnpm project template
+					{PROJECT_NAME}
 				</div>
 				<h1 style={{ fontSize: 48, lineHeight: 1.05, margin: 0 }}>{title}</h1>
 				<p style={{ maxWidth: 720, fontSize: 18, lineHeight: 1.7, color: '#cbd5e1' }}>

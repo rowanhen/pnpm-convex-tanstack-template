@@ -12,6 +12,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+PROJECT_NAME="$(node --input-type=module -e "import { readFileSync } from 'node:fs'; const pkg = JSON.parse(readFileSync(process.argv[1], 'utf8')); console.log(pkg.name)" "$ROOT_DIR/package.json")"
 
 APP=""
 BRANCH="main"
@@ -39,7 +40,7 @@ export CLOUDFLARE_API_TOKEN
 
 deploy_app() {
   local app_name="$1"
-  local project_name="pnpm-convex-tanstack-template-${app_name}"
+  local project_name="${PROJECT_NAME}-${app_name}"
   local app_dir="$ROOT_DIR/apps/$app_name"
 
   echo ""

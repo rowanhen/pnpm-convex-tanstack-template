@@ -1,3 +1,4 @@
+import { appMetaDescription, appTitle } from '@workspace/shared'
 import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from '@tanstack/react-router'
 import type { QueryClient } from '@tanstack/react-query'
 
@@ -8,10 +9,10 @@ export const Route = createRootRouteWithContext<{
 		meta: [
 			{ charSet: 'utf-8' },
 			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
-			{ title: 'Marketing Template' },
+			{ title: appTitle('Marketing') },
 			{
 				name: 'description',
-				content: 'Starter marketing app for a pnpm + TanStack Start + Convex workspace.',
+				content: appMetaDescription('marketing'),
 			},
 		],
 	}),

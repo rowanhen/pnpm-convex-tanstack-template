@@ -4,6 +4,7 @@
 	"type": "module",
 	"packageManager": "pnpm@10.18.0",
 	"scripts": {
+		"setup-project": "node scripts/setup-project.mjs",
 		"dev": "dotenvx run -f .env.local -- sh -c 'npx convex dev --env-file .env.convex & pnpm --filter marketing dev & pnpm --filter dashboard dev'",
 		"dev:marketing": "dotenvx run -f .env.local -- sh -c 'npx convex dev --env-file .env.convex & pnpm --filter marketing dev'",
 		"dev:dashboard": "dotenvx run -f .env.local -- sh -c 'npx convex dev --env-file .env.convex & pnpm --filter dashboard dev'",

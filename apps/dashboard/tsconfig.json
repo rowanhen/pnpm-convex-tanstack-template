@@ -5,8 +5,8 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-			"@template/shared": ["../../packages/shared/src/index.tsx"],
-			"@template/shared/*": ["../../packages/shared/src/*"],
+			"@workspace/shared": ["../../packages/shared/src/index.tsx"],
+			"@workspace/shared/*": ["../../packages/shared/src/*"],
 			"~/*": ["./src/*"],
 			"@convex/*": ["../../convex/*"]
 		}
