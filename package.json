@@ -17,11 +17,15 @@
 		"lint:all": "oxlint",
 		"format": "oxfmt . --write",
 		"format:check": "oxfmt . --check",
+		"precommit:check": "bash scripts/precommit-check.sh",
+		"check": "pnpm run lint && pnpm run format:check && pnpm run test && pnpm run typecheck && pnpm run build",
 		"deploy": "bash scripts/deploy.sh",
 		"deploy:marketing": "bash scripts/deploy.sh marketing",
 		"deploy:dashboard": "bash scripts/deploy.sh dashboard",
 		"env:sync": "bash scripts/sync-env-to-convex.sh",
-		"env:sync:prod": "bash scripts/sync-env-to-convex.sh --prod"
+		"env:sync:prod": "bash scripts/sync-env-to-convex.sh --prod",
+		"hooks:install": "bash scripts/install-precommit-hook.sh",
+		"prepare": "pnpm run hooks:install"
 	},
 	"dependencies": {
 		"convex": "^1.35.1"
