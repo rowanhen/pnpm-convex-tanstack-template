@@ -25,9 +25,9 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
-      - name: Prettier format check
+      - name: OxFmt format check
         run: pnpm format:check
 
       - name: OxLint
@@ -53,7 +53,7 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Typecheck marketing
         run: pnpm --filter marketing exec tsc --noEmit

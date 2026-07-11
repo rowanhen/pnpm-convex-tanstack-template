@@ -10,8 +10,17 @@ function DashboardHomePage() {
 
 	return (
 		<AppShell title={copy.title} description={copy.description} accent="#38bdf8">
-			<div style={{ display: 'grid', gap: 16, gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}>
-				<Card title="Auth Ready" body="Wire your provider of choice into Convex and expose session state here." />
+			<div
+				style={{
+					display: 'grid',
+					gap: 16,
+					gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+				}}
+			>
+				<Card
+					title="Auth Ready"
+					body="Wire your provider of choice into Convex and expose session state here."
+				/>
 				<Card
 					title="Queries"
 					body="Hook Convex queries and mutations into this app without reworking the workspace."

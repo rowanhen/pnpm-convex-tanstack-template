@@ -10,7 +10,13 @@ function MarketingHomePage() {
 
 	return (
 		<AppShell title={copy.title} description={copy.description} accent="#22c55e">
-			<div style={{ display: 'grid', gap: 16, gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}>
+			<div
+				style={{
+					display: 'grid',
+					gap: 16,
+					gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+				}}
+			>
 				<Card
 					title="Frontend"
 					body="TanStack Start on Cloudflare Pages, wired for dotenvx-backed builds."
